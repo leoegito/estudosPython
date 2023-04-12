@@ -1,0 +1,31 @@
+from turtle import Turtle, Screen
+
+cursor = Turtle()
+screen = Screen()
+
+def move_forward():
+    cursor.forward(10)
+
+def move_backwards():
+    cursor.backward(10)
+
+def move_left():
+    cursor.setheading(cursor.heading()+10)
+
+def move_right():
+    cursor.setheading(cursor.heading()-10)
+
+def clear():
+    cursor.clear()
+    cursor.penup()
+    cursor.home()
+    cursor.pendown()
+
+# sets a listener for the screen, to capture the keypressed
+screen.listen()
+screen.onkey(move_forward, "w")
+screen.onkey(move_backwards, "s")
+screen.onkey(move_left, "a")
+screen.onkey(move_right, "d")
+screen.onkey(clear, "c")
+screen.exitonclick()
